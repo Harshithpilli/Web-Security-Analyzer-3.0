@@ -121,7 +121,7 @@ You can choose to:
 **Start the Web Application**
 Run the following command to start the Flask web server:
 ```bash
-python run_server.py
+python app.py
 ```
 This will launch the application and open your browser to `http://localhost:5000`
 
