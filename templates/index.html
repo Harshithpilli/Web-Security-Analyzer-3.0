@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Security Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌐 Website Security Analyzer</h1>
+            <p>Enter a URL to analyze its security risks using our machine learning model</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="urlInput">Enter URL to analyze:</label>
+                    <div class="input-with-button">
+                        <input type="text" id="urlInput" placeholder="https://example.com">
+                        <button id="analyzeBtn">Analyze</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Analyzing website security...</p>
+            </div>
+
+            <div id="resultSection" class="result-section hidden">
+                <div class="result-header">
+                    <h2>Analysis Results</h2>
+                    <div class="risk-score">
+                        <span id="riskLevel">Risk Level</span>
+                        <div class="score-circle">
+                            <span id="riskScore">0</span><small>/10</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details-section">
+                    <div class="ml-prediction">
+                        <h3>Machine Learning Prediction</h3>
+                        <p id="mlPrediction"></p>
+                    </div>
+
+                    <div class="heuristic-checks">
+                        <h3>Heuristic Checks</h3>
+                        <table id="heuristicTable">
+                            <thead>
+                                <tr>
+                                    <th>Check</th>
+                                    <th>Score</th>
+                                </tr>
+                            </thead>
+                            <tbody id="heuristicBody">
+                                <!-- Dynamic content -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="security-details">
+                        <h3>Security Details</h3>
+                        <ul id="detailsList">
+                            <!-- Dynamic content -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feedback-section">
+                    <h3>Provide Feedback</h3>
+                    <p>Help us improve our model by confirming if this analysis was accurate:</p>
+                    <div class="feedback-buttons">
+                        <button class="feedback-btn" data-label="1">❌ This site IS malicious</button>
+                        <button class="feedback-btn" data-label="0">✅ This site is safe</button>
+                    </div>
+                    <div id="feedbackStatus" class="feedback-status hidden"></div>
+                </div>
+            </div>
+
+            <div id="errorSection" class="error-section hidden">
+                <h3>Error</h3>
+                <p id="errorMessage"></p>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
